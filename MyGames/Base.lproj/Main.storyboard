@@ -35,7 +35,7 @@
             </objects>
             <point key="canvasLocation" x="480" y="401"/>
         </scene>
-        <!--About-->
+        <!--View Controller-->
         <scene sceneID="KoT-xn-y3U">
             <objects>
                 <viewController id="QSd-Mx-SrK" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OVf-qg-czk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" selectedImage="person.crop.circle" catalog="system" id="3b3-rd-9W3"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="3b3-rd-9W3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m22-6c-3F4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,6 +79,33 @@
             </objects>
             <point key="canvasLocation" x="480" y="-286"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Agp-YC-5K8">
+            <objects>
+                <viewController id="sdN-Ms-mk8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NuB-aK-SJG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-gd-6vB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8Vh-gd-6vB" firstAttribute="top" secondItem="MMA-w0-sFK" secondAttribute="top" id="kZj-MX-Zn6"/>
+                            <constraint firstItem="8Vh-gd-6vB" firstAttribute="trailing" secondItem="MMA-w0-sFK" secondAttribute="trailing" id="lLE-wx-Yem"/>
+                            <constraint firstItem="8Vh-gd-6vB" firstAttribute="leading" secondItem="MMA-w0-sFK" secondAttribute="leading" id="yTc-WJ-SDV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MMA-w0-sFK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="J7p-Fl-TU6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRf-ys-Ly8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1150" y="-634"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ncB-Hb-245">
             <objects>
@@ -92,6 +119,7 @@
                         <segue destination="yQk-Bs-1Ka" kind="relationship" relationship="viewControllers" id="lrd-KA-rVI"/>
                         <segue destination="vuz-MC-vzz" kind="relationship" relationship="viewControllers" id="EL4-0B-WTw"/>
                         <segue destination="QSd-Mx-SrK" kind="relationship" relationship="viewControllers" id="7xS-uL-IqT"/>
+                        <segue destination="sdN-Ms-mk8" kind="relationship" relationship="viewControllers" id="hXP-1S-PFA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXj-fe-uRj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -99,7 +127,4 @@
             <point key="canvasLocation" x="-441" y="38"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
-    </resources>
 </document>
