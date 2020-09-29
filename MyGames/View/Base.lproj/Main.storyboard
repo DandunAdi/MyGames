@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="1151" y="38"/>
         </scene>
-        <!--View Controller-->
+        <!--Top Rated View Controller-->
         <scene sceneID="hRB-g8-lQt">
             <objects>
-                <viewController id="yQk-Bs-1Ka" sceneMemberID="viewController">
+                <viewController id="yQk-Bs-1Ka" customClass="TopRatedViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OXL-L7-R6d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,8 +118,8 @@
                     <connections>
                         <segue destination="yQk-Bs-1Ka" kind="relationship" relationship="viewControllers" id="lrd-KA-rVI"/>
                         <segue destination="vuz-MC-vzz" kind="relationship" relationship="viewControllers" id="EL4-0B-WTw"/>
-                        <segue destination="QSd-Mx-SrK" kind="relationship" relationship="viewControllers" id="7xS-uL-IqT"/>
                         <segue destination="sdN-Ms-mk8" kind="relationship" relationship="viewControllers" id="hXP-1S-PFA"/>
+                        <segue destination="QSd-Mx-SrK" kind="relationship" relationship="viewControllers" id="7xS-uL-IqT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXj-fe-uRj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

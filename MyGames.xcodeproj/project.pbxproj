@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		FD925EF125217E50003F3C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925EF025217E50003F3C6C /* AppDelegate.swift */; };
 		FD925EF325217E50003F3C6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925EF225217E50003F3C6C /* SceneDelegate.swift */; };
-		FD925EF525217E50003F3C6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925EF425217E50003F3C6C /* ViewController.swift */; };
 		FD925EF825217E50003F3C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD925EF625217E50003F3C6C /* Main.storyboard */; };
 		FD925EFA25217E57003F3C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD925EF925217E57003F3C6C /* Assets.xcassets */; };
 		FD925EFD25217E57003F3C6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD925EFB25217E57003F3C6C /* LaunchScreen.storyboard */; };
+		FD925F092521ACE4003F3C6C /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F082521ACE4003F3C6C /* GameManager.swift */; };
+		FD925F0B2521AD0B003F3C6C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0A2521AD0B003F3C6C /* Game.swift */; };
+		FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0C2521B28D003F3C6C /* GameNetworking.swift */; };
+		FD925F0F2522E763003F3C6C /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD925EED25217E50003F3C6C /* MyGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD925EF025217E50003F3C6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD925EF225217E50003F3C6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FD925EF425217E50003F3C6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD925EF725217E50003F3C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD925EF925217E57003F3C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD925EFC25217E57003F3C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD925EFE25217E57003F3C6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD925F082521ACE4003F3C6C /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		FD925F0A2521AD0B003F3C6C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		FD925F0C2521B28D003F3C6C /* GameNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworking.swift; sourceTree = "<group>"; };
+		FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		FD925EEF25217E50003F3C6C /* MyGames */ = {
 			isa = PBXGroup;
 			children = (
-				FD925EF025217E50003F3C6C /* AppDelegate.swift */,
-				FD925EF225217E50003F3C6C /* SceneDelegate.swift */,
-				FD925EF425217E50003F3C6C /* ViewController.swift */,
-				FD925EF625217E50003F3C6C /* Main.storyboard */,
+				FD925F072521AC5B003F3C6C /* Supporting FIles */,
+				FD925F062521AC4B003F3C6C /* Model */,
+				FD925F052521AC48003F3C6C /* View */,
+				FD925F042521AC43003F3C6C /* Controller */,
 				FD925EF925217E57003F3C6C /* Assets.xcassets */,
-				FD925EFB25217E57003F3C6C /* LaunchScreen.storyboard */,
 				FD925EFE25217E57003F3C6C /* Info.plist */,
 			);
 			path = MyGames;
+			sourceTree = "<group>";
+		};
+		FD925F042521AC43003F3C6C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FD925F052521AC48003F3C6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD925EFB25217E57003F3C6C /* LaunchScreen.storyboard */,
+				FD925EF625217E50003F3C6C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD925F062521AC4B003F3C6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD925F0A2521AD0B003F3C6C /* Game.swift */,
+				FD925F082521ACE4003F3C6C /* GameManager.swift */,
+				FD925F0C2521B28D003F3C6C /* GameNetworking.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD925F072521AC5B003F3C6C /* Supporting FIles */ = {
+			isa = PBXGroup;
+			children = (
+				FD925EF025217E50003F3C6C /* AppDelegate.swift */,
+				FD925EF225217E50003F3C6C /* SceneDelegate.swift */,
+			);
+			path = "Supporting FIles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD925EF525217E50003F3C6C /* ViewController.swift in Sources */,
 				FD925EF125217E50003F3C6C /* AppDelegate.swift in Sources */,
+				FD925F092521ACE4003F3C6C /* GameManager.swift in Sources */,
+				FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */,
 				FD925EF325217E50003F3C6C /* SceneDelegate.swift in Sources */,
+				FD925F0B2521AD0B003F3C6C /* Game.swift in Sources */,
+				FD925F0F2522E763003F3C6C /* TopRatedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
