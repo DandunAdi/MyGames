@@ -17,7 +17,7 @@ class GameNetworking {
     var searchValue = ""
     private var components = URLComponents(string: "https://api.rawg.io/api/games")!
     
-    func parseData(for category: GameCategory) -> Games? {
+    func parseData(for category: GameCategory, completion: @escaping (Games?) -> Void) {
         print("parse data executed")
         
         var games: Games?
@@ -42,6 +42,8 @@ class GameNetworking {
                 let decoder = JSONDecoder()
                 do {
                     games = try decoder.decode(Games.self, from: data)
+
+                    completion(games)
                 } catch let error {
                     print("Error decoding data \(error)")
                 }
@@ -51,6 +53,5 @@ class GameNetworking {
             }
         }.resume()
         
-        return games
     }
 }

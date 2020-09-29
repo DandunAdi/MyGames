@@ -12,7 +12,6 @@
 		FD925EF825217E50003F3C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD925EF625217E50003F3C6C /* Main.storyboard */; };
 		FD925EFA25217E57003F3C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD925EF925217E57003F3C6C /* Assets.xcassets */; };
 		FD925EFD25217E57003F3C6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD925EFB25217E57003F3C6C /* LaunchScreen.storyboard */; };
-		FD925F092521ACE4003F3C6C /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F082521ACE4003F3C6C /* GameManager.swift */; };
 		FD925F0B2521AD0B003F3C6C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0A2521AD0B003F3C6C /* Game.swift */; };
 		FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0C2521B28D003F3C6C /* GameNetworking.swift */; };
 		FD925F0F2522E763003F3C6C /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */; };
@@ -26,7 +25,6 @@
 		FD925EF925217E57003F3C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD925EFC25217E57003F3C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD925EFE25217E57003F3C6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD925F082521ACE4003F3C6C /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		FD925F0A2521AD0B003F3C6C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		FD925F0C2521B28D003F3C6C /* GameNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworking.swift; sourceTree = "<group>"; };
 		FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				FD925F0A2521AD0B003F3C6C /* Game.swift */,
-				FD925F082521ACE4003F3C6C /* GameManager.swift */,
 				FD925F0C2521B28D003F3C6C /* GameNetworking.swift */,
 			);
 			path = Model;
@@ -180,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD925EF125217E50003F3C6C /* AppDelegate.swift in Sources */,
-				FD925F092521ACE4003F3C6C /* GameManager.swift in Sources */,
 				FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */,
 				FD925EF325217E50003F3C6C /* SceneDelegate.swift in Sources */,
 				FD925F0B2521AD0B003F3C6C /* Game.swift in Sources */,

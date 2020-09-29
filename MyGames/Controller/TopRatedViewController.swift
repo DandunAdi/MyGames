@@ -13,7 +13,13 @@ class TopRatedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        GameNetworking.shared.parseData(for: .topRated) { (games) in
+            if let games = games {
+                print(games.results)
+            } else {
+                print("nillll")
+            }
+        }
     }
     
 }
