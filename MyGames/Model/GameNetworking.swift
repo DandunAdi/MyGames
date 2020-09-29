@@ -13,7 +13,7 @@ class GameNetworking {
     // Shared singleton
     static var shared = GameNetworking()
     
-    private let pageSize = "20"
+    private let pageSize = "5"
     var searchValue = ""
     private var components = URLComponents(string: "https://api.rawg.io/api/games")!
     
