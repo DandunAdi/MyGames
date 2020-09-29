@@ -16,6 +16,7 @@
 		FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0C2521B28D003F3C6C /* GameNetworking.swift */; };
 		FD925F0F2522E763003F3C6C /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */; };
 		FD925F1125230BC5003F3C6C /* MostRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */; };
+		FD925F13252381FF003F3C6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F12252381FF003F3C6C /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FD925F0C2521B28D003F3C6C /* GameNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNetworking.swift; sourceTree = "<group>"; };
 		FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostRecentViewController.swift; sourceTree = "<group>"; };
+		FD925F12252381FF003F3C6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */,
+				FD925F12252381FF003F3C6C /* SearchViewController.swift */,
 				FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */,
 			);
 			path = Controller;
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD925EF125217E50003F3C6C /* AppDelegate.swift in Sources */,
+				FD925F13252381FF003F3C6C /* SearchViewController.swift in Sources */,
 				FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */,
 				FD925EF325217E50003F3C6C /* SceneDelegate.swift in Sources */,
 				FD925F0B2521AD0B003F3C6C /* Game.swift in Sources */,

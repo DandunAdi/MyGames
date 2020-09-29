@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="480" y="-286"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="Agp-YC-5K8">
             <objects>
-                <viewController id="sdN-Ms-mk8" sceneMemberID="viewController">
+                <viewController id="sdN-Ms-mk8" customClass="SearchViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NuB-aK-SJG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,9 +117,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-PY-8bh">
+                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchedGameCell" id="0CJ-5Z-taW">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0CJ-5Z-taW" id="Cgh-vT-k70">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="MMA-w0-sFK" firstAttribute="bottom" secondItem="ybu-PY-8bh" secondAttribute="bottom" id="Ckc-99-Cg5"/>
+                            <constraint firstItem="MMA-w0-sFK" firstAttribute="trailing" secondItem="ybu-PY-8bh" secondAttribute="trailing" id="Hdt-SL-k9r"/>
+                            <constraint firstItem="ybu-PY-8bh" firstAttribute="top" secondItem="8Vh-gd-6vB" secondAttribute="bottom" id="cXT-r4-dYY"/>
+                            <constraint firstItem="ybu-PY-8bh" firstAttribute="leading" secondItem="MMA-w0-sFK" secondAttribute="leading" id="hP1-4V-psX"/>
                             <constraint firstItem="8Vh-gd-6vB" firstAttribute="top" secondItem="MMA-w0-sFK" secondAttribute="top" id="kZj-MX-Zn6"/>
                             <constraint firstItem="8Vh-gd-6vB" firstAttribute="trailing" secondItem="MMA-w0-sFK" secondAttribute="trailing" id="lLE-wx-Yem"/>
                             <constraint firstItem="8Vh-gd-6vB" firstAttribute="leading" secondItem="MMA-w0-sFK" secondAttribute="leading" id="yTc-WJ-SDV"/>
@@ -127,6 +145,10 @@
                         <viewLayoutGuide key="safeArea" id="MMA-w0-sFK"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="J7p-Fl-TU6"/>
+                    <connections>
+                        <outlet property="searchBar" destination="8Vh-gd-6vB" id="LfL-xw-3nu"/>
+                        <outlet property="tableView" destination="ybu-PY-8bh" id="Jr1-pS-3q8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRf-ys-Ly8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

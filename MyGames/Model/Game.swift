@@ -15,7 +15,7 @@ struct Games: Codable {
 struct Game: Codable {
     let id: Int
     let name: String
-    let backgroundImage: String
+    let backgroundImage: String?
     let rating: Double
     
     enum CodingKeys: String, CodingKey {

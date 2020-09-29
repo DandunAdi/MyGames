@@ -13,7 +13,7 @@ class GameNetworking {
     // Shared singleton
     static var shared = GameNetworking()
     
-    private let pageSize = "5"
+    private let pageSize = "20"
     var searchValue = ""
     private var components = URLComponents(string: "https://api.rawg.io/api/games")!
     
@@ -34,6 +34,7 @@ class GameNetworking {
         }
         
         let request = URLRequest(url: components.url!)
+        // print(components.url!)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let response = response as? HTTPURLResponse, let data = data else {return}
