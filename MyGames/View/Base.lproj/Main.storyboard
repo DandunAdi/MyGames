@@ -48,17 +48,50 @@
             </objects>
             <point key="canvasLocation" x="480" y="401"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="KoT-xn-y3U">
             <objects>
-                <viewController id="QSd-Mx-SrK" sceneMemberID="viewController">
+                <viewController id="QSd-Mx-SrK" customClass="ContactViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3YS-Z4-PSs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="p7S-Mr-gq1">
+                                <rect key="frame" x="67.5" y="50" width="240" height="301.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-De-Etm">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="CSp-eP-Dlc"/>
+                                            <constraint firstAttribute="height" constant="240" id="XF4-cc-JmK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dandun Adi Nugroho" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smc-iF-Ze3">
+                                        <rect key="frame" x="9.5" y="245" width="221.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dandun.adi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBh-mD-1xF">
+                                        <rect key="frame" x="26" y="280" width="188" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="p7S-Mr-gq1" firstAttribute="centerX" secondItem="3YS-Z4-PSs" secondAttribute="centerX" id="EAg-b6-yyp"/>
+                            <constraint firstItem="p7S-Mr-gq1" firstAttribute="top" secondItem="OVf-qg-czk" secondAttribute="top" constant="50" id="i50-5Y-Ovy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OVf-qg-czk"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="3b3-rd-9W3"/>
+                    <connections>
+                        <outlet property="profileImage" destination="VdP-De-Etm" id="QHg-nQ-xbu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m22-6c-3F4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,4 +208,7 @@
             <point key="canvasLocation" x="-441" y="38"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile" width="280" height="273"/>
+    </resources>
 </document>
