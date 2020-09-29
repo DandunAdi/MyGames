@@ -17,8 +17,11 @@ class GameNetworking {
     var searchValue = ""
     private var components = URLComponents(string: "https://api.rawg.io/api/games")!
     
-    func parseData(for category: GameCategory) {
+    func parseData(for category: GameCategory) -> Games? {
         print("parse data executed")
+        
+        var games: Games?
+        
         components.queryItems = [ URLQueryItem(name: "page_size", value: pageSize) ]
         
         switch category {
@@ -36,25 +39,18 @@ class GameNetworking {
             guard let response = response as? HTTPURLResponse, let data = data else {return}
             
             if response.statusCode == 200 {
-                print(self.components.url!)
-                self.decodeJSON(data: data)
+                let decoder = JSONDecoder()
+                do {
+                    games = try decoder.decode(Games.self, from: data)
+                } catch let error {
+                    print("Error decoding data \(error)")
+                }
                 
             } else {
                 fatalError("Bad response \(response.statusCode)")
             }
         }.resume()
-    }
-    
-    private func decodeJSON(data: Data) {
-        let decoder = JSONDecoder()
-        do {
-            let games = try decoder.decode(Games.self, from: data)
-            print(games)
-        } catch let error {
-            print("Error decoding data \(error)")
-        }
-    }
-    
-    
         
+        return games
+    }
 }
