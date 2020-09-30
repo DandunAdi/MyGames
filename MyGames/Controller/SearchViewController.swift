@@ -12,23 +12,32 @@ class SearchViewController: UIViewController {
     
     var searchedGames = [Game]()
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchBar.delegate = self
         tableView.dataSource = self
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
 }
 
+
+//MARK: - Search Bar Delegate
+
 extension SearchViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         if let searchText = searchBar.text, searchBar.text?.count != 0 {
             GameNetworking.shared.searchValue = searchText
+            
+            // hides keyboard
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         } else {
             print("Text empty")
             return
@@ -44,15 +53,30 @@ extension SearchViewController: UISearchBarDelegate {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                
             } else {
                 print("nillll")
             }
         }
     }
+    
+    // Hides keyboard when user tap outside
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
 
+
+//MARK: - Table View Data Source
+
 extension SearchViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchedGames.count
     }
@@ -64,4 +88,5 @@ extension SearchViewController: UITableViewDataSource {
         
         return cell
     }
+    
 }
