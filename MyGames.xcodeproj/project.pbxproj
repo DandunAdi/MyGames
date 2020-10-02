@@ -18,6 +18,11 @@
 		FD925F1125230BC5003F3C6C /* MostRecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */; };
 		FD925F13252381FF003F3C6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F12252381FF003F3C6C /* SearchViewController.swift */; };
 		FD925F152523EC97003F3C6C /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD925F142523EC97003F3C6C /* ContactViewController.swift */; };
+		FDBA36F3252463AD00B0F41B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA36F1252463AD00B0F41B /* DetailViewController.swift */; };
+		FDBA36F4252463AD00B0F41B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDBA36F2252463AD00B0F41B /* DetailViewController.xib */; };
+		FDD65846252566EC006CA1E0 /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD65845252566EC006CA1E0 /* GameDetails.swift */; };
+		FDD6584B252706EF006CA1E0 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD65849252706EF006CA1E0 /* GameTableViewCell.swift */; };
+		FDD6584C252706EF006CA1E0 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD6584A252706EF006CA1E0 /* GameTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostRecentViewController.swift; sourceTree = "<group>"; };
 		FD925F12252381FF003F3C6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD925F142523EC97003F3C6C /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		FDBA36F1252463AD00B0F41B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FDBA36F2252463AD00B0F41B /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		FDD65845252566EC006CA1E0 /* GameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
+		FDD65849252706EF006CA1E0 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		FDD6584A252706EF006CA1E0 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +89,9 @@
 		FD925F042521AC43003F3C6C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FDD65849252706EF006CA1E0 /* GameTableViewCell.swift */,
 				FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */,
+				FDBA36F1252463AD00B0F41B /* DetailViewController.swift */,
 				FD925F12252381FF003F3C6C /* SearchViewController.swift */,
 				FD925F142523EC97003F3C6C /* ContactViewController.swift */,
 				FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */,
@@ -91,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				FD925EF625217E50003F3C6C /* Main.storyboard */,
+				FDD6584A252706EF006CA1E0 /* GameTableViewCell.xib */,
+				FDBA36F2252463AD00B0F41B /* DetailViewController.xib */,
 				FD925EFB25217E57003F3C6C /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -100,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FD925F0A2521AD0B003F3C6C /* Game.swift */,
+				FDD65845252566EC006CA1E0 /* GameDetails.swift */,
 				FD925F0C2521B28D003F3C6C /* GameNetworking.swift */,
 			);
 			path = Model;
@@ -173,8 +188,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD925EFD25217E57003F3C6C /* LaunchScreen.storyboard in Resources */,
+				FDD6584C252706EF006CA1E0 /* GameTableViewCell.xib in Resources */,
 				FD925EFA25217E57003F3C6C /* Assets.xcassets in Resources */,
 				FD925EF825217E50003F3C6C /* Main.storyboard in Resources */,
+				FDBA36F4252463AD00B0F41B /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,10 +202,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD65846252566EC006CA1E0 /* GameDetails.swift in Sources */,
+				FDBA36F3252463AD00B0F41B /* DetailViewController.swift in Sources */,
 				FD925EF125217E50003F3C6C /* AppDelegate.swift in Sources */,
 				FD925F152523EC97003F3C6C /* ContactViewController.swift in Sources */,
 				FD925F13252381FF003F3C6C /* SearchViewController.swift in Sources */,
 				FD925F0D2521B28D003F3C6C /* GameNetworking.swift in Sources */,
+				FDD6584B252706EF006CA1E0 /* GameTableViewCell.swift in Sources */,
 				FD925EF325217E50003F3C6C /* SceneDelegate.swift in Sources */,
 				FD925F0B2521AD0B003F3C6C /* Game.swift in Sources */,
 				FD925F1125230BC5003F3C6C /* MostRecentViewController.swift in Sources */,

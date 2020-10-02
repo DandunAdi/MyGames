@@ -17,6 +17,7 @@ class TopRatedViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
 
         GameNetworking.shared.parseData(for: .topRated) { (games) in
             if let games = games {
@@ -36,7 +37,7 @@ class TopRatedViewController: UIViewController {
     
 }
 
-extension TopRatedViewController: UITableViewDataSource {
+extension TopRatedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topRatedGames.count
     }
@@ -49,4 +50,11 @@ extension TopRatedViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        destinationVC.gameId = topRatedGames[indexPath.row].id
+        destinationVC.hidesBottomBarWhenPushed = true
+
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
 }

@@ -20,8 +20,6 @@ class GameNetworking {
     func parseData(for category: GameCategory, completion: @escaping (Games?) -> Void) {
         print("parse data executed")
         
-        var games: Games?
-        
         components.queryItems = [ URLQueryItem(name: "page_size", value: pageSize) ]
         
         switch category {
@@ -34,7 +32,7 @@ class GameNetworking {
         }
         
         let request = URLRequest(url: components.url!)
-        // print(components.url!)
+        print(components.url!)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let response = response as? HTTPURLResponse, let data = data else {return}
@@ -42,7 +40,7 @@ class GameNetworking {
             if response.statusCode == 200 {
                 let decoder = JSONDecoder()
                 do {
-                    games = try decoder.decode(Games.self, from: data)
+                    let games = try decoder.decode(Games.self, from: data)
 
                     completion(games)
                 } catch let error {
@@ -50,9 +48,29 @@ class GameNetworking {
                 }
                 
             } else {
-                fatalError("Bad response \(response.statusCode)")
+                print("Bad response \(response.statusCode)")
             }
         }.resume()
         
+    }
+    
+    func getGameDetails(id: Int, completion: @escaping (GameDetails?) -> Void ) {
+        let url = URL(string: "https://api.rawg.io/api/games/\(id)")!
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse, let data = data else {return}
+            
+            if response.statusCode == 200 {
+                let decoder = JSONDecoder()
+                do {
+                    let gameDetails = try decoder.decode(GameDetails.self, from: data)
+                    completion(gameDetails)
+                } catch let error {
+                    print("Error decoding data \(error)")
+                }
+            } else {
+                print("Bad response \(response.statusCode)")
+            }
+        }.resume()
     }
 }

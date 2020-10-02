@@ -17,6 +17,7 @@ class MostRecentViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
 
         GameNetworking.shared.parseData(for: .mostRecent) { (games) in
             if let games = games {
@@ -36,7 +37,7 @@ class MostRecentViewController: UIViewController {
 
 }
 
-extension MostRecentViewController: UITableViewDataSource {
+extension MostRecentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mostRecentGames.count
     }
@@ -46,5 +47,13 @@ extension MostRecentViewController: UITableViewDataSource {
         let selectedGame = mostRecentGames[indexPath.row]
         cell.textLabel?.text = selectedGame.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        destinationVC.gameId = mostRecentGames[indexPath.row].id
+        destinationVC.hidesBottomBarWhenPushed = true
+
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
