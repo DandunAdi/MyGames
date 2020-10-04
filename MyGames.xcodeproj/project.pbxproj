@@ -91,10 +91,10 @@
 			children = (
 				FDD65849252706EF006CA1E0 /* GameTableViewCell.swift */,
 				FD925F0E2522E763003F3C6C /* TopRatedViewController.swift */,
-				FDBA36F1252463AD00B0F41B /* DetailViewController.swift */,
-				FD925F12252381FF003F3C6C /* SearchViewController.swift */,
-				FD925F142523EC97003F3C6C /* ContactViewController.swift */,
 				FD925F1025230BC5003F3C6C /* MostRecentViewController.swift */,
+				FD925F12252381FF003F3C6C /* SearchViewController.swift */,
+				FDBA36F1252463AD00B0F41B /* DetailViewController.swift */,
+				FD925F142523EC97003F3C6C /* ContactViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

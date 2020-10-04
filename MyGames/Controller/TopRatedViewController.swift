@@ -18,6 +18,7 @@ class TopRatedViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGameCell")
 
         GameNetworking.shared.parseData(for: .topRated) { (games) in
             if let games = games {
@@ -43,18 +44,24 @@ extension TopRatedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopRatedGameCell", for: indexPath)
-        let selectedGame = topRatedGames[indexPath.row]
-        cell.textLabel?.text = selectedGame.name
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TopRatedGameCell", for: indexPath) as? GameTableViewCell {
+
+            let selectedGame = topRatedGames[indexPath.row]
+            cell.setDisplay(selectedGame, position: indexPath.row + 1)
+            
+            return cell
+        } else {
+            return UITableViewCell()
+        }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
         destinationVC.gameId = topRatedGames[indexPath.row].id
         destinationVC.hidesBottomBarWhenPushed = true
-
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
 }

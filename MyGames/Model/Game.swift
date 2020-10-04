@@ -17,12 +17,14 @@ struct Game: Codable {
     let name: String
     let backgroundImage: String?
     let rating: Double
+    let released: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case backgroundImage = "background_image"
         case rating
+        case released
     }
 }
 

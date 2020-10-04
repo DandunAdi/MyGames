@@ -19,6 +19,8 @@ class SearchViewController: UIViewController {
         
         searchBar.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchedGameCell")
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -73,20 +75,34 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 
-//MARK: - Table View Data Source
+//MARK: - Table View Data Source & Delegate
 
-extension SearchViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchedGames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchedGameCell", for: indexPath)
-        let selectedGame = searchedGames[indexPath.row]
-        cell.textLabel?.text = selectedGame.name
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchedGameCell", for: indexPath) as? GameTableViewCell {
+
+            let selectedGame = searchedGames[indexPath.row]
+            cell.setDisplay(selectedGame, position: indexPath.row + 1)
+            
+            return cell
+        } else {
+            return UITableViewCell()
+        }
         
-        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("tapped")
+        let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        destinationVC.gameId = searchedGames[indexPath.row].id
+        destinationVC.hidesBottomBarWhenPushed = true
+
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
 }

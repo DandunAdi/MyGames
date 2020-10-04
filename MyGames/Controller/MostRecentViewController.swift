@@ -18,6 +18,7 @@ class MostRecentViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "MostRecentGameCell")
 
         GameNetworking.shared.parseData(for: .mostRecent) { (games) in
             if let games = games {
@@ -43,10 +44,16 @@ extension MostRecentViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MostRecentGameCell", for: indexPath)
-        let selectedGame = mostRecentGames[indexPath.row]
-        cell.textLabel?.text = selectedGame.name
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MostRecentGameCell", for: indexPath) as? GameTableViewCell {
+
+            let selectedGame = mostRecentGames[indexPath.row]
+            cell.setDisplay(selectedGame, position: indexPath.row + 1)
+            
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
