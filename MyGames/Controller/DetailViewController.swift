@@ -19,7 +19,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         imageView.isHidden = true
-        self.navigationItem.largeTitleDisplayMode = .never
+        imageView.layer.cornerRadius = 15
+        navigationItem.largeTitleDisplayMode = .never
         
         GameNetworking.shared.getGameDetails(id: gameId) { (gameDetails) in
             guard let gameDetails = gameDetails else {return}
@@ -37,11 +38,9 @@ class DetailViewController: UIViewController {
                 }
             }
             
-            
             DispatchQueue.main.async {
                 self.titleLabel.text = gameDetails.name
                 self.descriptionLabel.text = gameDetails.descriptionRaw
-                
             }
         }
     }
