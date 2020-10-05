@@ -13,6 +13,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var gameId: Int = 0
     
     override func viewDidLoad() {
@@ -38,9 +41,18 @@ class DetailViewController: UIViewController {
                 }
             }
             
+            var genreString = [String]()
+            gameDetails.genres.forEach { (genre) in
+                genreString.append(genre.name)
+            }
+            print(genreString.joined(separator: ", "))
+            
             DispatchQueue.main.async {
                 self.titleLabel.text = gameDetails.name
                 self.descriptionLabel.text = gameDetails.descriptionRaw
+                self.releaseDateLabel.text = gameDetails.released == nil ? "" : "Released on \(gameDetails.released!)"
+                self.genreLabel.text = genreString.joined(separator: ", ")
+                self.activityIndicator.stopAnimating()
             }
         }
     }

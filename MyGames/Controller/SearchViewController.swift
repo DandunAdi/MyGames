@@ -101,7 +101,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
         destinationVC.gameId = searchedGames[indexPath.row].id
         destinationVC.hidesBottomBarWhenPushed = true
-
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     

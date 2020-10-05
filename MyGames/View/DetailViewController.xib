@@ -10,8 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="MyGames" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="aiC-95-hR4" id="c6f-yk-3vq"/>
                 <outlet property="descriptionLabel" destination="15N-SE-ccP" id="co4-Xl-oQH"/>
+                <outlet property="genreLabel" destination="7zF-r8-WER" id="21a-Ku-LBX"/>
                 <outlet property="imageView" destination="TcO-DT-Q6I" id="HRW-Aw-ZiL"/>
+                <outlet property="releaseDateLabel" destination="C8D-pn-Vwa" id="otY-lt-fS5"/>
                 <outlet property="titleLabel" destination="qI2-1q-fx6" id="dSQ-yE-M9U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +34,7 @@
                                     <rect key="frame" x="20" y="10" width="335" height="216.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vLs-Kx-9BO">
-                                            <rect key="frame" x="0.0" y="0.0" width="268" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="277.5" height="160"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-DT-Q6I">
                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="160"/>
@@ -42,9 +45,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-zq-V2W">
-                                                    <rect key="frame" x="130" y="0.0" width="138" height="121"/>
+                                                    <rect key="frame" x="130" y="0.0" width="147.5" height="121"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI2-1q-fx6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="qI2-1q-fx6">
                                                             <rect key="frame" x="0.0" y="0.0" width="58.5" height="27"/>
                                                             <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="23"/>
                                                             <color key="textColor" name="primaryText"/>
@@ -65,15 +68,15 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Adventure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zF-r8-WER">
-                                                            <rect key="frame" x="0.0" y="71" width="129.5" height="19"/>
-                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Adventure" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7zF-r8-WER">
+                                                            <rect key="frame" x="0.0" y="71" width="136.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="16"/>
                                                             <color key="textColor" name="secondaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 September 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8D-pn-Vwa">
-                                                            <rect key="frame" x="0.0" y="102" width="138" height="19"/>
-                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <rect key="frame" x="0.0" y="102" width="147.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="16"/>
                                                             <color key="textColor" name="secondaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -133,12 +136,20 @@
                         <constraint firstAttribute="bottom" secondItem="Xhr-9S-4Jd" secondAttribute="bottom" id="rSa-58-11Q"/>
                     </constraints>
                 </scrollView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aiC-95-hR4">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5eQ-fn-CPE"/>
+                <constraint firstItem="aiC-95-hR4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9cZ-Hl-IHj"/>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="VzZ-Sz-nHU"/>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="efA-dB-hcf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aiC-95-hR4" secondAttribute="trailing" id="gvA-EG-e5c"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aiC-95-hR4" secondAttribute="bottom" id="hh3-9q-ZcY"/>
+                <constraint firstItem="aiC-95-hR4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tvI-xf-Uof"/>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="v9P-dP-JnX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
