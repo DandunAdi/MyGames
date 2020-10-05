@@ -36,7 +36,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vLs-Kx-9BO">
                                             <rect key="frame" x="0.0" y="0.0" width="277.5" height="160"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-DT-Q6I">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-DT-Q6I">
                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="160"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -165,7 +165,7 @@
         </label>
     </objects>
     <resources>
-        <image name="profile" width="280" height="273"/>
+        <image name="default" width="735" height="552"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="primaryText">
             <color red="0.21600000560283661" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

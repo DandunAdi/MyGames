@@ -23,7 +23,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-X1-hFj">
                                 <rect key="frame" x="10" y="10" width="336" height="284"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L28-0q-40t">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="L28-0q-40t">
                                         <rect key="frame" x="0.0" y="0.0" width="336" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="Nwh-aL-Y2H"/>
@@ -127,6 +127,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="default" width="735" height="552"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="primaryText">
             <color red="0.21600000560283661" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

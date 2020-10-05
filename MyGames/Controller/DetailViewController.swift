@@ -21,7 +21,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.isHidden = true
         imageView.layer.cornerRadius = 15
         navigationItem.largeTitleDisplayMode = .never
         
@@ -36,7 +35,6 @@ class DetailViewController: UIViewController {
                     let data = try? Data(contentsOf: url!)
                     DispatchQueue.main.async {
                         self.imageView.image = UIImage(data: data!)
-                        self.imageView.isHidden = false
                     }
                 }
             }

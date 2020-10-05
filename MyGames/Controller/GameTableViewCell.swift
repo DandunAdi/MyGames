@@ -29,7 +29,7 @@ class GameTableViewCell: UITableViewCell {
     }
     
     func setDisplay(_ selectedGame: Game, position: Int) {
-        gameImageView.image = nil
+        gameImageView.image = UIImage(named: "default")
         gameTitleLabel.text = "#\(position)  \(selectedGame.name)"
         gameRatingLabel.text = selectedGame.rating == 0.0 ? "N/A" : String(format:"%.1f", selectedGame.rating)
         gameReleaseDateLabel.text = selectedGame.released ?? "N/A"
