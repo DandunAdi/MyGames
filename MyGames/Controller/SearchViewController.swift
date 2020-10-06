@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     var searchedGames = [Game]()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchedGameCell")
+        activityIndicator.isHidden = true
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -34,12 +36,15 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text, searchBar.text?.count != 0 {
-            GameNetworking.shared.searchValue = searchText
-            
-            // hides keyboard
             DispatchQueue.main.async {
+                self.searchedGames = []
+                self.tableView.reloadData()
+                self.activityIndicator.startAnimating()
+                self.activityIndicator.isHidden = false
                 searchBar.resignFirstResponder()
             }
+            
+            GameNetworking.shared.searchValue = searchText
         } else {
             print("Text empty")
             return
@@ -53,6 +58,7 @@ extension SearchViewController: UISearchBarDelegate {
                 self.searchedGames = games.results
                 
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
             } else {

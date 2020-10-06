@@ -11,6 +11,7 @@ import UIKit
 class MostRecentViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var mostRecentGames = [Game]()
     
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class MostRecentViewController: UIViewController {
                 self.mostRecentGames = games.results
                 
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
             } else {

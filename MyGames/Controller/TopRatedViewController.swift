@@ -11,6 +11,7 @@ import UIKit
 class TopRatedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var topRatedGames = [Game]()
     
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class TopRatedViewController: UIViewController {
                 self.topRatedGames = games.results
                 
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
             } else {
