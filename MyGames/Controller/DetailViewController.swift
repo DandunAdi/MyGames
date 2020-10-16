@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var gameId: Int = 0
     
@@ -27,14 +28,14 @@ class DetailViewController: UIViewController {
         GameNetworking.shared.getGameDetails(id: gameId) { (gameDetails) in
             guard let gameDetails = gameDetails else {return}
             
-            print(gameDetails)
             if let image = gameDetails.backgroundImage {
                 let url = URL(string: image)
                 
                 DispatchQueue.global().async {
-                    let data = try? Data(contentsOf: url!)
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data!)
+                    if let data = try? Data(contentsOf: url!){
+                        DispatchQueue.main.async {
+                            self.imageView.image = UIImage(data: data)
+                        }
                     }
                 }
             }
@@ -43,13 +44,13 @@ class DetailViewController: UIViewController {
             gameDetails.genres.forEach { (genre) in
                 genreString.append(genre.name)
             }
-            print(genreString.joined(separator: ", "))
             
             DispatchQueue.main.async {
                 self.titleLabel.text = gameDetails.name
                 self.descriptionLabel.text = gameDetails.descriptionRaw
-                self.releaseDateLabel.text = gameDetails.released == nil ? "" : "Released on \(gameDetails.released!)"
+                self.releaseDateLabel.text = "Released on \(gameDetails.released?.refactorDate() ?? "N/A")"
                 self.genreLabel.text = genreString.joined(separator: ", ")
+                self.ratingLabel.text = gameDetails.rating == 0.0 ? "N/A" : String(format: "%.1f", gameDetails.rating)
                 self.activityIndicator.stopAnimating()
             }
         }

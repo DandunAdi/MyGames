@@ -21,18 +21,12 @@ class GameTableViewCell: UITableViewCell {
         
         gameImageView.layer.cornerRadius = 10
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func setDisplay(_ selectedGame: Game, position: Int) {
-        gameImageView.image = UIImage(named: "default")
+        gameImageView.image = Constants.Image.defaultImage
         gameTitleLabel.text = "#\(position)  \(selectedGame.name)"
         gameRatingLabel.text = selectedGame.rating == 0.0 ? "N/A" : String(format:"%.1f", selectedGame.rating)
-        gameReleaseDateLabel.text = selectedGame.released ?? "N/A"
+        gameReleaseDateLabel.text = selectedGame.released?.refactorDate() ?? "N/A"
         
         if let image = selectedGame.backgroundImage {
             guard let url = URL(string: image) else { return }

@@ -27,7 +27,3 @@ struct Game: Codable {
         case released
     }
 }
-
-enum GameCategory {
-    case topRated, mostRecent, search
-}

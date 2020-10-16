@@ -21,10 +21,18 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchedGameCell")
+        tableView.register(UINib(nibName: Constants.Table.gameTableViewCellNibName, bundle: nil), forCellReuseIdentifier: Constants.Table.searchedCellReuseIdentifier)
         activityIndicator.isHidden = true
         
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 }
@@ -46,23 +54,30 @@ extension SearchViewController: UISearchBarDelegate {
             
             GameNetworking.shared.searchValue = searchText
         } else {
-            print("Text empty")
+            searchBar.placeholder = "Please insert keyword"
             return
         }
         
         GameNetworking.shared.parseData(for: .search) { (games) in
             if let games = games {
-                games.results.forEach { (game) in
-                    print(game.name)
-                }
                 self.searchedGames = games.results
+                
+                guard self.searchedGames.count != 0 else {
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        let alert = UIAlertController(title: "Not Found!", message: "Games you're looking for is not found. Please check your spelling keyword.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                    return
+                }
                 
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
             } else {
-                print("nillll")
+                print("no data received")
             }
         }
     }
@@ -90,7 +105,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchedGameCell", for: indexPath) as? GameTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Table.searchedCellReuseIdentifier, for: indexPath) as? GameTableViewCell {
 
             let selectedGame = searchedGames[indexPath.row]
             cell.setDisplay(selectedGame, position: indexPath.row + 1)
@@ -103,8 +118,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped")
-        let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        let destinationVC = DetailViewController(nibName: Constants.Controller.detailViewControllerNibName, bundle: nil)
         destinationVC.gameId = searchedGames[indexPath.row].id
         destinationVC.hidesBottomBarWhenPushed = true
         

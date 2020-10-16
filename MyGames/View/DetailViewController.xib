@@ -14,6 +14,7 @@
                 <outlet property="descriptionLabel" destination="15N-SE-ccP" id="co4-Xl-oQH"/>
                 <outlet property="genreLabel" destination="7zF-r8-WER" id="21a-Ku-LBX"/>
                 <outlet property="imageView" destination="TcO-DT-Q6I" id="HRW-Aw-ZiL"/>
+                <outlet property="ratingLabel" destination="MMy-dU-qxY" id="a6d-qk-59n"/>
                 <outlet property="releaseDateLabel" destination="C8D-pn-Vwa" id="otY-lt-fS5"/>
                 <outlet property="titleLabel" destination="qI2-1q-fx6" id="dSQ-yE-M9U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -136,20 +137,17 @@
                         <constraint firstAttribute="bottom" secondItem="Xhr-9S-4Jd" secondAttribute="bottom" id="rSa-58-11Q"/>
                     </constraints>
                 </scrollView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aiC-95-hR4">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aiC-95-hR4">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5eQ-fn-CPE"/>
-                <constraint firstItem="aiC-95-hR4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9cZ-Hl-IHj"/>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="VzZ-Sz-nHU"/>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="efA-dB-hcf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aiC-95-hR4" secondAttribute="trailing" id="gvA-EG-e5c"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aiC-95-hR4" secondAttribute="bottom" id="hh3-9q-ZcY"/>
-                <constraint firstItem="aiC-95-hR4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tvI-xf-Uof"/>
                 <constraint firstItem="PYy-CI-cvG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="v9P-dP-JnX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -171,7 +169,7 @@
             <color red="0.21600000560283661" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondaryText">
-            <color red="0.70200002193450928" green="0.70200002193450928" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63899999856948853" green="0.63899999856948853" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -19,13 +19,10 @@ class TopRatedViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "TopRatedGameCell")
+        tableView.register(UINib(nibName: Constants.Table.gameTableViewCellNibName, bundle: nil), forCellReuseIdentifier: Constants.Table.topRatedCellReuseIdentifier)
 
         GameNetworking.shared.parseData(for: .topRated) { (games) in
             if let games = games {
-                games.results.forEach { (game) in
-                    print(game.name)
-                }
                 self.topRatedGames = games.results
                 
                 DispatchQueue.main.async {
@@ -33,7 +30,7 @@ class TopRatedViewController: UIViewController {
                     self.tableView.reloadData()
                 }
             } else {
-                print("nillll")
+                print("no data received")
             }
         }
     }
@@ -46,7 +43,7 @@ extension TopRatedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TopRatedGameCell", for: indexPath) as? GameTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Table.topRatedCellReuseIdentifier, for: indexPath) as? GameTableViewCell {
 
             let selectedGame = topRatedGames[indexPath.row]
             cell.setDisplay(selectedGame, position: indexPath.row + 1)
@@ -55,11 +52,10 @@ extension TopRatedViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        let destinationVC = DetailViewController(nibName: Constants.Controller.detailViewControllerNibName, bundle: nil)
         destinationVC.gameId = topRatedGames[indexPath.row].id
         destinationVC.hidesBottomBarWhenPushed = true
         

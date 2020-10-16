@@ -13,12 +13,15 @@ class GameNetworking {
     // Shared singleton
     static var shared = GameNetworking()
     
+    enum GameCategory {
+        case topRated, mostRecent, search
+    }
+    
     private let pageSize = "20"
     var searchValue = ""
     private var components = URLComponents(string: "https://api.rawg.io/api/games")!
     
     func parseData(for category: GameCategory, completion: @escaping (Games?) -> Void) {
-        print("parse data executed")
         
         components.queryItems = [ URLQueryItem(name: "page_size", value: pageSize) ]
         
@@ -31,10 +34,10 @@ class GameNetworking {
             components.queryItems?.append(URLQueryItem(name: "search", value: searchValue))
         }
         
-        let request = URLRequest(url: components.url!)
-        print(components.url!)
+        guard let url = components.url else { return }
+        let request = URLRequest(url: url)
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, _) in
             guard let response = response as? HTTPURLResponse, let data = data else {return}
             
             if response.statusCode == 200 {
@@ -55,9 +58,9 @@ class GameNetworking {
     }
     
     func getGameDetails(id: Int, completion: @escaping (GameDetails?) -> Void ) {
-        let url = URL(string: "https://api.rawg.io/api/games/\(id)")!
+        guard let url = URL(string: "https://api.rawg.io/api/games/\(id)") else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url) { (data, response, _) in
             guard let response = response as? HTTPURLResponse, let data = data else {return}
             
             if response.statusCode == 200 {

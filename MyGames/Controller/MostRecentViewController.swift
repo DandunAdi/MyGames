@@ -19,13 +19,10 @@ class MostRecentViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "MostRecentGameCell")
+        tableView.register(UINib(nibName: Constants.Table.gameTableViewCellNibName, bundle: nil), forCellReuseIdentifier: Constants.Table.mostRecentCellReuseIdentifier)
 
         GameNetworking.shared.parseData(for: .mostRecent) { (games) in
             if let games = games {
-                games.results.forEach { (game) in
-                    print(game)
-                }
                 self.mostRecentGames = games.results
                 
                 DispatchQueue.main.async {
@@ -33,7 +30,7 @@ class MostRecentViewController: UIViewController {
                     self.tableView.reloadData()
                 }
             } else {
-                print("nillllll")
+                print("no data received")
             }
         }
     }
@@ -46,7 +43,7 @@ extension MostRecentViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MostRecentGameCell", for: indexPath) as? GameTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Table.mostRecentCellReuseIdentifier, for: indexPath) as? GameTableViewCell {
 
             let selectedGame = mostRecentGames[indexPath.row]
             cell.setDisplay(selectedGame, position: indexPath.row + 1)
@@ -59,7 +56,7 @@ extension MostRecentViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        let destinationVC = DetailViewController(nibName: Constants.Controller.detailViewControllerNibName, bundle: nil)
         destinationVC.gameId = mostRecentGames[indexPath.row].id
         destinationVC.hidesBottomBarWhenPushed = true
         
