@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="aiC-95-hR4" id="c6f-yk-3vq"/>
                 <outlet property="descriptionLabel" destination="15N-SE-ccP" id="co4-Xl-oQH"/>
+                <outlet property="favoriteButton" destination="3uN-pb-bJZ" id="hrN-s8-KVH"/>
                 <outlet property="genreLabel" destination="7zF-r8-WER" id="21a-Ku-LBX"/>
                 <outlet property="imageView" destination="TcO-DT-Q6I" id="HRW-Aw-ZiL"/>
                 <outlet property="ratingLabel" destination="MMy-dU-qxY" id="a6d-qk-59n"/>
@@ -29,13 +30,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhr-9S-4Jd">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="360.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-e9-AB3">
-                                    <rect key="frame" x="20" y="10" width="335" height="216.5"/>
+                                    <rect key="frame" x="20" y="10" width="335" height="220"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vLs-Kx-9BO">
-                                            <rect key="frame" x="0.0" y="0.0" width="277.5" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="277.5" height="163.5"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="TcO-DT-Q6I">
                                                     <rect key="frame" x="0.0" y="0.0" width="110" height="160"/>
@@ -45,24 +46,24 @@
                                                         <constraint firstAttribute="height" constant="160" id="tBj-mR-yqn"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-zq-V2W">
-                                                    <rect key="frame" x="130" y="0.0" width="147.5" height="121"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-zq-V2W">
+                                                    <rect key="frame" x="130" y="0.0" width="147.5" height="148.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="qI2-1q-fx6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="58.5" height="27"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="58.5" height="27.5"/>
                                                             <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="23"/>
                                                             <color key="textColor" name="primaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-Y1-NTY">
-                                                            <rect key="frame" x="0.0" y="39" width="49.5" height="20"/>
+                                                            <rect key="frame" x="0.0" y="35.5" width="49.5" height="20.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="i4J-uT-MQh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="22" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="22" height="20.5"/>
                                                                     <color key="tintColor" red="0.96862745100000003" green="0.72549019609999998" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMy-dU-qxY">
-                                                                    <rect key="frame" x="26" y="0.0" width="23.5" height="20"/>
+                                                                    <rect key="frame" x="26" y="0.0" width="23.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" name="Trebuchet-BoldItalic" family="Trebuchet MS" pointSize="15"/>
                                                                     <color key="textColor" name="secondaryText"/>
                                                                     <nil key="highlightedColor"/>
@@ -70,34 +71,56 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Adventure" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7zF-r8-WER">
-                                                            <rect key="frame" x="0.0" y="71" width="136.5" height="19"/>
+                                                            <rect key="frame" x="0.0" y="64" width="136.5" height="19"/>
                                                             <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="16"/>
                                                             <color key="textColor" name="secondaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 September 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8D-pn-Vwa">
-                                                            <rect key="frame" x="0.0" y="102" width="147.5" height="19"/>
+                                                            <rect key="frame" x="0.0" y="91" width="147.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="16"/>
                                                             <color key="textColor" name="secondaryText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-pb-bJZ">
+                                                            <rect key="frame" x="0.0" y="118.5" width="147.5" height="30"/>
+                                                            <color key="backgroundColor" name="highlight"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="lRA-Hs-dLP"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
+                                                            <state key="normal" title="Add to Favorites">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="favoriteButtonDIdTapped:" destination="-1" eventType="touchUpInside" id="Hja-ut-60j"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="3uN-pb-bJZ" firstAttribute="leading" secondItem="iDg-zq-V2W" secondAttribute="leading" id="ZOP-zt-Dnt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3uN-pb-bJZ" secondAttribute="trailing" id="yf0-q0-Lfk"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmz-Ba-nKc">
-                                            <rect key="frame" x="0.0" y="193" width="79" height="23.5"/>
+                                            <rect key="frame" x="0.0" y="196.5" width="79" height="23.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="23.5" id="Oaw-BL-hvv"/>
+                                                <constraint firstAttribute="width" constant="79" id="QAb-YL-qlc"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
                                             <color key="textColor" name="primaryText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="216.5" id="8Rn-Gp-ami"/>
+                                        <constraint firstAttribute="height" constant="220" id="8Rn-Gp-ami"/>
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15N-SE-ccP">
-                                    <rect key="frame" x="20" y="236.5" width="335" height="19"/>
+                                    <rect key="frame" x="20" y="240" width="335" height="19"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="bRM-ow-5Ax"/>
                                     </constraints>
@@ -106,7 +129,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAb-Zp-556">
-                                    <rect key="frame" x="20" y="270.5" width="335" height="50"/>
+                                    <rect key="frame" x="20" y="274" width="335" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="9rs-lr-jJJ"/>
@@ -165,6 +188,9 @@
     <resources>
         <image name="default" width="735" height="552"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="highlight">
+            <color red="0.019999999552965164" green="0.3919999897480011" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="primaryText">
             <color red="0.21600000560283661" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

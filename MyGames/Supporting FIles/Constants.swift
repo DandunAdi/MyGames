@@ -14,6 +14,7 @@ struct Constants {
         static let topRatedCellReuseIdentifier = "TopRatedGameCell"
         static let mostRecentCellReuseIdentifier = "MostRecentGameCell"
         static let searchedCellReuseIdentifier = "SearchedGameCell"
+        static let favoritedCellReuseIdentifier = "FavoritedGameCell"
     }
     
     struct Controller {
@@ -22,5 +23,10 @@ struct Constants {
     
     struct Image {
         static let defaultImage = UIImage(named: "default")
+    }
+    
+    struct CoreData {
+        static let favoriteGamesName = "FavoriteGames"
+        static let favoriteGameEntityName = "FavoriteGame"
     }
 }

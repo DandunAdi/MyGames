@@ -41,4 +41,23 @@ class GameTableViewCell: UITableViewCell {
         }
     }
     
+    func setDisplay(_ selectedGame: GameDetails, position: Int) {
+        gameImageView.image = Constants.Image.defaultImage
+        gameTitleLabel.text = "#\(position)  \(selectedGame.name)"
+        gameRatingLabel.text = selectedGame.rating == 0.0 ? "N/A" : String(format:"%.1f", selectedGame.rating)
+        gameReleaseDateLabel.text = selectedGame.released?.refactorDate() ?? "N/A"
+        
+        if let image = selectedGame.backgroundImage {
+            guard let url = URL(string: image) else { return }
+            
+            DispatchQueue.global().async {
+                guard let data = try? Data(contentsOf: url) else { return }
+                
+                DispatchQueue.main.async {
+                    self.gameImageView.image = UIImage(data: data)
+                }
+            }
+        }
+    }
+    
 }

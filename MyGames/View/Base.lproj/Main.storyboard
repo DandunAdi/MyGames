@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1Z-GK-gIA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="401"/>
+            <point key="canvasLocation" x="1418" y="430"/>
         </scene>
         <!--Contact View Controller-->
         <scene sceneID="KoT-xn-y3U">
@@ -186,6 +186,7 @@
                         <segue destination="ycA-t2-OUc" kind="relationship" relationship="viewControllers" id="lrd-KA-rVI"/>
                         <segue destination="qz8-vK-aim" kind="relationship" relationship="viewControllers" id="EL4-0B-WTw"/>
                         <segue destination="b3V-P1-ZSM" kind="relationship" relationship="viewControllers" id="hXP-1S-PFA"/>
+                        <segue destination="Ggn-eL-Di4" kind="relationship" relationship="viewControllers" id="In2-GQ-PuR"/>
                         <segue destination="QSd-Mx-SrK" kind="relationship" relationship="viewControllers" id="7xS-uL-IqT"/>
                     </connections>
                 </tabBarController>
@@ -237,7 +238,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2r-ra-6As" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="401"/>
+            <point key="canvasLocation" x="479" y="430"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rAs-Xv-7tj">
@@ -261,8 +262,66 @@
             </objects>
             <point key="canvasLocation" x="-442.39999999999998" y="864.91754122938539"/>
         </scene>
+        <!--Favorited Games-->
+        <scene sceneID="WsK-ct-cDZ">
+            <objects>
+                <viewController id="kg0-35-Bi8" customClass="FavoritedViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mkY-gY-3X5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wq7-Sk-EF3">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="d6t-RZ-8oz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wq7-Sk-EF3" firstAttribute="leading" secondItem="KBd-wk-aSh" secondAttribute="leading" id="3rN-1I-a68"/>
+                            <constraint firstItem="KBd-wk-aSh" firstAttribute="trailing" secondItem="Wq7-Sk-EF3" secondAttribute="trailing" id="SjZ-Me-uOz"/>
+                            <constraint firstItem="Wq7-Sk-EF3" firstAttribute="top" secondItem="KBd-wk-aSh" secondAttribute="top" id="WCP-th-9PG"/>
+                            <constraint firstItem="KBd-wk-aSh" firstAttribute="bottom" secondItem="Wq7-Sk-EF3" secondAttribute="bottom" id="hUQ-QF-Q1T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KBd-wk-aSh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorited Games" id="Ahw-KV-ipp"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="d6t-RZ-8oz" id="juZ-MF-pz0"/>
+                        <outlet property="tableView" destination="Wq7-Sk-EF3" id="ep1-TQ-mQF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvd-B4-GFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1418" y="1130"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="byj-b0-g9j">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ggn-eL-Di4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" selectedImage="heart.fill" id="60B-Ne-3Ld">
+                        <color key="badgeColor" name="secondaryText"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nkF-bj-YD8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kg0-35-Bi8" kind="relationship" relationship="rootViewController" id="hH8-8M-Qa4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFK-fj-gPU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="1130"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="profile" width="280" height="273"/>
         <namedColor name="primaryText">
             <color red="0.21600000560283661" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
